@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seedance"
+dynamic = ["version"]
+description = "Seedance Python SDK: generate ByteDance Seedance 2.0 and 2.5 videos from Python through the KreatorFlow API."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "KreatorFlow" }]
+keywords = [
+  "seedance",
+  "seedance-api",
+  "seedance-2",
+  "seedance-2-5",
+  "bytedance",
+  "video-generation",
+  "ai-video",
+  "text-to-video",
+  "image-to-video",
+  "kreatorflow",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+dependencies = ["requests>=2.25"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://kreatorflow.ai/seedance-api"
+Documentation = "https://kreatorflow.ai/seedance-api/reference"
+Tutorial = "https://kreatorflow.ai/guides/seedance-api-python-node"
+Pricing = "https://kreatorflow.ai/seedance-pricing"
+Source = "https://github.com/stevensons-28/seedance-sdk"
+Issues = "https://github.com/stevensons-28/seedance-sdk/issues"
+
+[project.scripts]
+seedance = "seedance.cli:main"
+
+[tool.hatch.version]
+path = "src/seedance/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/seedance"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/seedance", "tests", "README.md", "LICENSE", "CHANGELOG.md", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

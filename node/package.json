@@ -1,0 +1,69 @@
+{
+  "name": "seedance-sdk",
+  "version": "0.1.0",
+  "description": "Seedance Node.js SDK: generate ByteDance Seedance 2.0 and 2.5 videos from Node.js and TypeScript through the KreatorFlow API. Zero dependencies.",
+  "keywords": [
+    "seedance",
+    "seedance-api",
+    "seedance-2",
+    "seedance-2-5",
+    "bytedance",
+    "video-generation",
+    "ai-video",
+    "text-to-video",
+    "image-to-video",
+    "kreatorflow"
+  ],
+  "homepage": "https://kreatorflow.ai/seedance-api",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevensons-28/seedance-sdk.git",
+    "directory": "node"
+  },
+  "bugs": {
+    "url": "https://github.com/stevensons-28/seedance-sdk/issues"
+  },
+  "license": "MIT",
+  "author": "KreatorFlow",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "seedance-sdk": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs test/*.test.cjs",
+    "prepublishOnly": "npm run typecheck && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
+}
